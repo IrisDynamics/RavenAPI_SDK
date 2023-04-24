@@ -1,5 +1,4 @@
-# RavenAPI_SDK_dev
-
+# RavenAPI_SDK
 ## WARNING! 
 
 Be aware that the Raven-6DoF motion platform will move during operation. Before operating the platform ensure that no one is standing within the platform's range of motion. Be very careful at all time. 
