@@ -8,10 +8,9 @@ Be aware that the Raven-6DoF motion platform will move during operation. Before 
 This SDK will demonstrate how to interact with a Raven-6DoF motion platform from a simulation or game using the RavenAPI. RavenAPI uses the UDP protocol over ethernet to communicate with the SuperEagle Motor Controller. The API is language agnostic, and just requires support for serial ports. 
 
 This repo contains the following: 
-* A user guide for using the Raven API
 * An example project which demonstrates how to format RavenAPI requests, and how to parse the responses which are received from the SuperEagle Motor Controller.  
 
-User guides and reference manuals for the Orca Series motors can be found at https://www.irisdynamics.com/downloads/ . 
+The RavenAPI user guide, as well as user guides and reference manuals for the Orca Series motors, can be found at https://www.irisdynamics.com/downloads/ . 
 
 ## Environment Setup 
 The following should be done on the computer that is running the simulation and communicating with the SuperEagle Motion Controller. This will allow the computer to communicate with the SuperEagle over ethernet. 
