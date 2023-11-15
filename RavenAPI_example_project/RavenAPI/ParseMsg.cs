@@ -73,6 +73,9 @@ namespace RavenAPI
             //parse msg appropriatly 
             switch (msgID)
             {
+                case 5:
+                    ParseAccelerations(msgBytes);
+                    break;
                 case 170:
                     ParseWashouts(msgBytes);
                     break;
@@ -318,6 +321,35 @@ namespace RavenAPI
                             );
 
         }
+
+        //for 5 messages 
+        public static void ParseAccelerations(byte[] msgBytes)
+        {
+            //add to frame printout 
+            ResponseList.AddToFrameListResponses(msgBytes);
+
+            float[] values = ParseValues(msgBytes);
+            float surgePos = values[0] / 1000;
+            float swayPos = values[1] / 1000;
+            float heavePos = values[2] / 1000;
+            float rollPos = values[3] / 1000;
+            float pitchPos = values[4] / 1000;
+            float yawPos = values[5] / 1000;
+
+            UpdateWashoutValues(surgePos, swayPos, heavePos, rollPos, pitchPos, yawPos);
+
+            ResponseList.AddToResponseList("Washout Positions " +
+                            "\r\nSurge Position: " + surgePos +
+                            "\r\nSway Position: " + swayPos +
+                            "\r\nHeave Position: " + heavePos +
+                            "\r\nRoll Orientation: " + rollPos +
+                            "\r\nPitch Orientation: " + pitchPos +
+                            "\r\nYaw Orientation: " + yawPos +
+                            "\r\n\r\n"
+                            );
+
+        }
+
 
         //for 3780 messages
         public static void ParseFirwareInfo(byte[] msgBytes)

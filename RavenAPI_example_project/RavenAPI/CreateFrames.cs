@@ -69,9 +69,6 @@ namespace RavenAPI
                                 messageIDBytes[0], messageIDBytes[1],
                                 };
 
-            //add to frame printout 
-            ResponseList.AddToFrameListRequests(sendBytes);
-
             return sendBytes;
         }
 
@@ -88,9 +85,6 @@ namespace RavenAPI
             byte[] sendBytes = {  startBytes[0], startBytes[1], startBytes[2], startBytes[3],
                                 messageIDBytes[0], messageIDBytes[1],
                                 modeBytes[0], modeBytes[1], modeBytes[2], modeBytes[3]};
-
-            //add to frame printout 
-            ResponseList.AddToFrameListRequests(sendBytes);
 
             return sendBytes;
         }
@@ -125,9 +119,6 @@ namespace RavenAPI
                             pitchbytes[0], pitchbytes[1], pitchbytes[2], pitchbytes[3],
                             yawbytes[0], yawbytes[1], yawbytes[2], yawbytes[3]};
 
-            //add to frame printout 
-            ResponseList.AddToFrameListRequests(sendBytes);
-
             return sendBytes;
         }
 
@@ -160,9 +151,6 @@ namespace RavenAPI
                                 pitchbytes[0], pitchbytes[1], pitchbytes[2], pitchbytes[3],
                                 yawbytes[0], yawbytes[1], yawbytes[2], yawbytes[3]
                                 };
-
-            //add to frame printout 
-            ResponseList.AddToFrameListRequests(sendBytes);
 
             return sendBytes;
         }
