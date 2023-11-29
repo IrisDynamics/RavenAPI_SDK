@@ -237,5 +237,34 @@ namespace RavenAPI
 
         }
 
+        //sends a 5/acceleration only frame
+        private void AccelerationRequest(object sender, EventArgs e)
+        {
+            foreach (Control con in this.Controls)
+            {
+                if (con is TextBox)
+                {
+                    dofTxtBoxes.Add((TextBox)con);
+                }
+            }
+
+            foreach (TextBox t in dofTxtBoxes)
+            {
+                if (t.Name != "ResponseBox" && t.Text.Length < 1)
+                {
+                    t.Text = "0";
+                }
+            }
+            
+            if(dofFloats[0] > 9800 || dofFloats[1] > 9800 || dofFloats[2] > 9800)
+            {
+                ResponseList.AddToResponseList("Please enter an acceleration value that is below 9.8m/s\u00b2 before sending a message of this type.\r\n");
+            }
+            else
+            {
+                byte[] sendBytes = CreateFrames.CreateNewFrame(CreateFrames.MessageID.sixDOF, dofFloats[0], dofFloats[1], dofFloats[2], dofFloats[3], dofFloats[4], dofFloats[5]);
+                UDPConnection.udpCon.Send(UDPConnection.targetIP, sendBytes);
+            }
+        }
     }
 }

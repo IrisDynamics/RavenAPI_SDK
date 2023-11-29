@@ -103,9 +103,13 @@ namespace RavenAPI
                 sendbytes_string += sendByteswithCRC[i] + " ";
                 last_sent = sendbytes_string;
                 Console.Write(sendByteswithCRC[i] + "/");
+                
             }
             Console.WriteLine();
 
+            //add to frame printout
+            ResponseList.AddToFrameListRequests(sendByteswithCRC);
+            
             u.BeginSend(sendByteswithCRC, sendByteswithCRC.Length, server, talkPort, new AsyncCallback(SendCallback), u);
             while (!messageSent)
             {
