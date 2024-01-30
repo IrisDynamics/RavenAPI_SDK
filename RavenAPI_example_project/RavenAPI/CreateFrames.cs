@@ -93,12 +93,12 @@ namespace RavenAPI
         static public byte[] CreateNewFrame(float Surge, float Sway, float Heave, float Roll, float Pitch, float Yaw)
         {
             Int16 msgID = (Int16)MessageID.sixDOF;
-            Int32 surge = (Int32)(Surge * 1000);
-            Int32 sway = (Int32)(Sway * 1000);
-            Int32 heave = (Int32)(Heave * 1000);
-            Int32 roll = (Int32)(Roll * 1000);
-            Int32 pitch = (Int32)(Pitch * 1000);
-            Int32 yaw = (Int32)(Yaw * 1000);
+            Int32 surge = (Int32)(Surge);
+            Int32 sway = (Int32)(Sway);
+            Int32 heave = (Int32)(Heave);
+            Int32 roll = (Int32)(Roll);
+            Int32 pitch = (Int32)(Pitch);
+            Int32 yaw = (Int32)(Yaw);
 
             byte[] startBytes = { (byte)(startbyte >> 24), (byte)(startbyte >> 16), (byte)(startbyte >> 8), (byte)(startbyte) };
             byte[] messageIDBytes = { (byte)(msgID >> 8), (byte)(msgID) };
